@@ -4,10 +4,13 @@
 </h2>
 
 <div class="form-group">
-  <label class="checkbox">
+  <label class="checkbox bold-label">
     <input type="checkbox" ng-change="save()" ng-model="config.globalBower" ng-false-value="true" ng-true-value="false">
-    Use your project's local Bower dependency. This means you have `bower` in the `devDependencies` section of your package.json.
+    Use project's bower dependency
   </label>
+  <p class="help-text">
+    Use your project's local Bower dependency. This means you have `bower` in the `devDependencies` section of your package.json.
+  </p>
 
   <label for="node-project-subdir" class="bold-label">Project Subdirectory</label>
   <input type="text" ng-model="config.subDir" placeholder="subdirectory for project">

@@ -26,17 +26,19 @@ module.exports = {
 
       prepare: function (context, done) {
         var bowerExists = fs.existsSync(path.join(projectDir, 'bower.json'));
-        console.log('bower exists ', bowerExists);
 
         if (!bowerExists) {
           return done(null, false);
         }
 
         var skipCache = config.caching !== 'strict' && config.caching !== 'loose';
-        console.log('skip cache', skipCache);
 
         installPackages(config, context, projectDir, function (err, exact) {
-          if (err || exact || skipCache) {
+          if (err || exact === true || skipCache) {
+            if (skipCache) {
+              context.comment('skipping cache update');
+            }
+
             return done(err);
           }
 
