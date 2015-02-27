@@ -1,0 +1,42 @@
+{
+  "name": "strider-bower",
+  "version": "0.0.0",
+  "description": "Bower install/cache plugin for Strider",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Strider-CD/strider-bower.git"
+  },
+  "keywords": [
+    "strider",
+    "bower",
+    "cache",
+    "install",
+    "dependencies"
+  ],
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://github.com/Strider-CD/strider-bower",
+  "bugs": {
+    "url": "https://github.com/Strider-CD/strider-bower/issues"
+  },
+  "strider": {
+    "id": "bower",
+    "type": "job",
+    "title": "Bower",
+    "webapp": "webapp.js",
+    "worker": "worker.js",
+    "icon": "icon.png",
+    "config": {
+      "controller": "BowerController"
+    }
+  },
+  "dependencies": {
+    "MD5": "^1.2.1",
+    "async": "^0.9.0",
+    "bower": "^1.3.12"
+  }
+}
