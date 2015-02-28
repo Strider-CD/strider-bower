@@ -2,7 +2,7 @@
   "name": "strider-bower",
   "version": "0.1.0",
   "description": "Bower install/cache plugin for Strider",
-  "main": "index.js",
+  "main": "worker.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
