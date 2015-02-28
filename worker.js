@@ -4,6 +4,7 @@ var path = require('path');
 var fs = require('fs');
 var installPackages = require('./lib/install-packages');
 var updateCache = require('./lib/update-cache');
+var findDirectory = require('./lib/find-directory');
 
 module.exports = {
   // Initialize the plugin for a job
@@ -33,16 +34,18 @@ module.exports = {
 
         var skipCache = config.caching !== 'strict' && config.caching !== 'loose';
 
-        installPackages(config, context, projectDir, function (err, exact) {
-          if (err || exact === true || skipCache) {
-            if (skipCache) {
-              context.comment('skipping cache update');
+        findDirectory(projectDir, function (err, bowerDirectory) {
+          installPackages(config, context, projectDir, bowerDirectory, function (err, exact) {
+            if (err || exact === true || skipCache) {
+              if (skipCache) {
+                context.comment('skipping cache update');
+              }
+
+              return done(err);
             }
 
-            return done(err);
-          }
-
-          updateCache(context, done);
+            updateCache(context, done);
+          });
         });
       }
     };
