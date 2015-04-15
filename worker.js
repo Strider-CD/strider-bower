@@ -44,7 +44,7 @@ module.exports = {
               return done(err);
             }
 
-            updateCache(context, bowerDirectory, done);
+            updateCache(context, projectDir, bowerDirectory, done);
           });
         });
       }
