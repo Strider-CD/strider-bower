@@ -1,10 +1,12 @@
 'use strict';
 
-var path = require('path');
+var debug = require('debug')('strider-bower:worker');
+var findDirectory = require('./lib/find-directory');
 var fs = require('fs');
 var installPackages = require('./lib/install-packages');
+var path = require('path');
 var updateCache = require('./lib/update-cache');
-var findDirectory = require('./lib/find-directory');
+
 
 module.exports = {
   // Initialize the plugin for a job
@@ -26,9 +28,11 @@ module.exports = {
       },
 
       prepare: function (context, done) {
+        debug('Preparing bower...');
         var bowerExists = fs.existsSync(path.join(projectDir, 'bower.json'));
 
         if (!bowerExists) {
+          debug('No "bower.json" found in project. Nothing to do.');
           return done(null, false);
         }
 

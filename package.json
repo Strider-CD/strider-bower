@@ -4,7 +4,8 @@
   "description": "Bower install/cache plugin for Strider",
   "main": "worker.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint *.js lib",
+    "test": "npm run lint"
   },
   "repository": {
     "type": "git",
@@ -17,8 +18,11 @@
     "install",
     "dependencies"
   ],
+  "engines": {
+    "node": ">=4.2"
+  },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "homepage": "https://github.com/Strider-CD/strider-bower",
   "bugs": {
     "url": "https://github.com/Strider-CD/strider-bower/issues"
@@ -37,6 +41,10 @@
   "dependencies": {
     "MD5": "^1.2.1",
     "async": "^0.9.0",
-    "bower": "^1.6.3"
+    "bower": "^1.6.3",
+    "debug": "^2.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.1.1"
   }
 }
