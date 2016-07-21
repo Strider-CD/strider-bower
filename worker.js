@@ -29,10 +29,17 @@ module.exports = {
 
       prepare: function (context, done) {
         debug('Preparing bower...');
+
+        // We don't support any caching in a docker container, as the container is reconstructed on every run anyway.
+        if (context.runnerId === 'docker') {
+          return installPackages(config, context, projectDir);
+        }
+
         var bowerExists = fs.existsSync(path.join(projectDir, 'bower.json'));
 
         if (!bowerExists) {
           debug('No "bower.json" found in project. Nothing to do.');
+          context.comment('No "bower.json" found in project. Nothing to do.');
           return done(null, false);
         }
 
