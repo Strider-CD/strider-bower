@@ -42,7 +42,7 @@
     "MD5": "^1.2.1",
     "async": "^2.1.4",
     "bower": "^1.6.3",
-    "debug": "^2.2.0"
+    "debug": "^4.1.0"
   },
   "devDependencies": {
     "eslint": "^4.1.0"
